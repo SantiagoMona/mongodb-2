@@ -219,4 +219,3 @@ db.ejercicio1.find({$and:
         {salario: {$gt: 2500}}
     ]
 }); // Obtener a todos los usuarios que sean de Londres y que ganen más de $2500 o que tengan más de 30 años.
-
