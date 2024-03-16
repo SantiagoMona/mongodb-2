@@ -1,0 +1,222 @@
+db.createCollection('ejercicio1');
+
+db.ejercicio1.insertMany([
+    {
+        nombre :"santiago",
+        apellidos: "mona",
+        correo: "santimona1@gmail.com",
+        ciudad: "New york",
+        país: "estados unidos",
+        salario : 5000 ,
+        edad : 23,
+        altura:1.75,
+        peso: 73
+    },
+    {
+   
+    },
+    {
+        nombre :"jose",
+        apellidos: "perez",
+        correo: "joseperez1@gmail.com",
+        ciudad: "Carolina del sur",
+        país: "estados unidos",
+        salario : 1100,
+        edad : 23,
+        altura:1.85,
+        peso: 90
+    },
+    {
+        nombre: "María",
+        apellidos: "González",
+        correo: "mariagonzalez@gmail.com",
+        ciudad: "Medellin",
+        país: "Colombia",
+        salario: 2500,
+        edad: 25,
+        altura: 1.65,
+        peso: 60
+    },
+    {
+        nombre: "Mohammed",
+        apellidos: "Ali",
+        correo: "mohammedali@gmail.com",
+        ciudad: "cairo",
+        país: "Egipto",
+        salario: 4500,
+        edad: 32,
+        altura: 1.80,
+        peso: 75
+    },
+    {
+        nombre: "Isabella",
+        apellidos: "Silva",
+        correo: "isabellasilva@gmail.com",
+        ciudad: "Río de Janeiro",
+        país: "Brasil",
+        salario: 5000,
+        edad: 27,
+        altura: 1.68,
+        peso: 60
+    },
+    {
+        nombre: "Luis",
+        apellidos: "Fernández",
+        correo: "luisfernandez@gmail.com",
+        ciudad: "Madrid",
+        país: "España",
+        salario: 5500,
+        edad: 30,
+        altura: 1.75,
+        peso: 70
+    },
+    {
+        nombre: "Pedro",
+        apellidos: "Gómez",
+        correo: "pedrogomez@gmail.com",
+        ciudad: "Buenos Aires",
+        país: "Argentina",
+        salario: 7000,
+        edad: 35,
+        altura: 1.85,
+        peso: 85
+    },
+    {
+        nombre: "Ana",
+        apellidos: "López",
+        correo: "analopez@gmail.com",
+        ciudad: "Madrid",
+        país: "España",
+        salario: 6000,
+        edad: 28,
+        altura: 1.70,
+        peso: 65
+    },
+    {
+        nombre: "Laura",
+        apellidos: "Martínez",
+        correo: "lauramartinez@gmail.com",
+        ciudad: "Santiago",
+        país: "Chile",
+        salario: 4800,
+        edad: 26,
+        altura: 1.70,
+        peso: 62 
+    },
+    {
+        nombres: "Judy",
+        apellidos: "Brown",
+        correo: "judybrown@gmail.com",
+        ciudad: "madrid",
+        pais: "España",
+        salario: 1800,
+        edad: 22,
+        altura: 1.60,
+        peso: 55
+    },
+    {
+        nombres: "Kate",
+        apellidos: "Mary",
+        correo: "katemary@gmail.com",
+        ciudad: "budapest",
+        pais: "hungary",
+        salario: 1300,
+        edad: 21,
+        altura: 1.68,
+        peso: 60
+    },
+    {
+        nombres: "Lisa",
+        apellidos: "Jones",
+        correo: "lisa@gmail.com",
+        ciudad: "londres",
+        pais: "inglaterra",
+        salario: 1700,
+        edad: 23,
+        altura: 1.70,
+        peso: 70
+    },
+    {
+        nombres: "Mark",
+        apellidos: "Johnson",
+        correo: "markjohnson@gmail.com",
+        ciudad: "stockholm",
+        pais: "sweden",
+        salario: 2200,
+        edad: 64,
+        altura: 1.83,
+        peso: 95
+    },
+    {
+        nombres: "Mike",
+        apellidos: "Williams",
+        correo: "mike@gmail.com",
+        ciudad: "londre",
+        pais: "inglaterra",
+        salario: 2800,
+        edad: 55,
+        altura: 1.75,
+        peso: 80
+    },
+  
+]);
+
+db.ejercicio1.insertOne({
+    "nombres": "Lisa",
+    "apellidos": "Jones",
+    "correo": "lisa@gmail.com",
+    "ciudad": "paris",
+    "pais": "francia",
+    "salario": 1700,
+    "edad": 23,
+    "altura": 1.7,
+    "peso": 70
+})
+
+/* ====================== EJERCICIOS #1 ============================= */
+
+db.ejercicio1.find({edad: 
+    {$ne: 18}
+}); /// MAYORES DE 18 AÑOS 
+
+
+db.ejercicio1.find({$or: 
+    [
+        {ciudad: {$regex: /^londre/}},
+        {ciudad: {$regex: /^paris/}} 
+    ]
+}); // OBTENER EXCEPTO LOS QUE VIVEN EN LONDRES Y EN PARIS
+    
+db.ejercicio1.find({$and: 
+    [
+        {salario: {$gt: 2000}},
+        {edad:{$lte: 30}}
+    ]
+}); // Obtener a todos los usuarios que ganen más de $2000 al mes y tengan menos de 30 años.
+
+db.ejercicio1.find({$and: 
+    [
+        {ciudad: "españa"},
+        {salario: {gte: 3000}}
+    ]
+}); //Obtener a todos los usuarios que sean de España y ganen más de $3000 al mes.
+
+db.ejercicio1.find({$and: 
+    [
+        {edad: {$gte: 25}},
+        {edad: {$lte: 35}}
+    ]
+}); //Obtener todos los usuarios que tengan entre 25 y 35 años.
+
+
+db.ejercicio1.find({país:
+    {$ne: "estados unidos"}
+}); // traer los usuarios excepto que vivan en estados unidos 
+
+db.ejercicio1.find({$and: 
+    [
+        {ciudad:"londre"},
+        {salario: {$gt: 2500}}
+    ]
+}); // Obtener a todos los usuarios que sean de Londres y que ganen más de $2500 o que tengan más de 30 años.
+
