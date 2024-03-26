@@ -162,14 +162,14 @@ db.ejercicio1.insertMany([
 ]);
 
 db.ejercicio1.insertOne({
-    "nombres": "Lisa",
+    "nombres": "thor",
     "apellidos": "Jones",
-    "correo": "lisa@gmail.com",
-    "ciudad": "paris",
-    "pais": "francia",
+    "correo": "thor@gmail.com",
+    "ciudad": "sytnet",
+    "pais": "australia",
     "salario": 1700,
     "edad": 23,
-    "altura": 1.7,
+    "altura": 1.70,
     "peso": 70
 })
 
@@ -178,7 +178,6 @@ db.ejercicio1.insertOne({
 db.ejercicio1.find({edad: 
     {$ne: 18}
 }); /// MAYORES DE 18 AÑOS 
-
 
 db.ejercicio1.find({$or: 
     [
@@ -219,3 +218,13 @@ db.ejercicio1.find({$and:
         {salario: {$gt: 2500}}
     ]
 }); // Obtener a todos los usuarios que sean de Londres y que ganen más de $2500 o que tengan más de 30 años.
+
+
+db.ejercicio1.find({$and:
+    [ 
+        {pais:"australia"},
+        {peso:{$gt:60}}    
+    ]
+})
+//Obtener a todos los usuarios que sean de Australia y tengan un peso mayor a 140 libras.
+db.ejercicio1.find();
